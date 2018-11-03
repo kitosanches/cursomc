@@ -26,7 +26,7 @@ public class Produto implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	private Double preço;
+	private Double preco;
 	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "PRODUTO_CATEGORIA",
@@ -69,19 +69,19 @@ public class Produto implements Serializable {
 		this.nome = nome;
 	}
 
-	public Double getPreço() {
-		return preço;
+	public Double getPreco() {
+		return preco;
 	}
 
-	public void setPreço(Double preço) {
-		this.preço = preço;
+	public void setPreco(Double preco) {
+		this.preco = preco;
 	}
 
-	public Produto(Integer id, String nome, Double preço) {
+	public Produto(Integer id, String nome, Double preco) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.preço = preço;
+		this.preco = preco;
 	}
 
 	public Produto() {
@@ -94,7 +94,7 @@ public class Produto implements Serializable {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((preço == null) ? 0 : preço.hashCode());
+		result = prime * result + ((preco == null) ? 0 : preco.hashCode());
 		return result;
 	}
 
@@ -117,10 +117,10 @@ public class Produto implements Serializable {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-		if (preço == null) {
-			if (other.preço != null)
+		if (preco == null) {
+			if (other.preco != null)
 				return false;
-		} else if (!preço.equals(other.preço))
+		} else if (!preco.equals(other.preco))
 			return false;
 		return true;
 	}
