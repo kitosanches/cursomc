@@ -3,9 +3,12 @@ package com.marcus.cursomc.domain;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class ItemPedido {
 	@EmbeddedId
+	@JsonIgnore
 private ItemPedidoPk id = new ItemPedidoPk();	
 private Double desconto;
 private Integer quantidade;
@@ -46,7 +49,7 @@ public Double getPreco() {
 public void setPreco(Double preco) {
 	this.preco = preco;
 }
-
+@JsonIgnore
 public Pedido getPedido() {
 	return id.getPedido();
 }

@@ -80,13 +80,17 @@ public class CursomcApplication implements CommandLineRunner {
 		repo4.saveAll(Arrays.asList(est1, est2));
 		repo3.saveAll(Arrays.asList(c1, c2, c3));
 		
-		Cliente cli1 = new Cliente(null, "Maria", "maria@gmail.com", "12341234123",TipoCliente.PESSOAFISICA);
+		Cliente cli1 = new Cliente(null, "Tester Informatica", "testerinformatica@gmail.com", "12341234123",TipoCliente.PESSOAJURIDICA);
+		Cliente cli2 = new Cliente(null, "Tester Eletrodomestico", "testereletrodomestico@gmail.com", "12341234144",TipoCliente.PESSOAJURIDICA);
 		cli1.getTelefones().addAll(Arrays.asList("1234","12341234"));
-		Endereco end1 = new Endereco(null, "Rua dos perdedores", "300", "nada", "teste", "1234", cli1, c1);
-		Endereco end2 = new Endereco(null, "Rua dos perdedores 2", "3320", "nadda", "testee", "1234789", cli1, c2);
+		cli2.getTelefones().addAll(Arrays.asList("1232","99999999"));
+		Endereco end1 = new Endereco(null, "Rua dos testers", "300", "teste", "teste", "1234", cli1, c1);
+		Endereco end2 = new Endereco(null, "Rua dos testers 2", "3320", "teste", "testee", "1234789", cli1, c2);
+		Endereco end3 = new Endereco(null, "Rua dos testers 3", "3000", "tester", "tester", "1234", cli2, c1);
 		cli1.getEnderecos().addAll(Arrays.asList(end1, end2));
-		repo8.saveAll(Arrays.asList(cli1));
-		repo7.saveAll(Arrays.asList(end1, end2));
+		cli2.getEnderecos().addAll(Arrays.asList(end3));
+		repo8.saveAll(Arrays.asList(cli1, cli2));
+		repo7.saveAll(Arrays.asList(end1, end2, end3));
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 		Pedido ped1 = new Pedido(null, sdf.parse("12-11-1999 10:30"), cli1, end1);
